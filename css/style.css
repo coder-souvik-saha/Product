@@ -1,0 +1,446 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.bgAnimObj {
+	background: white;
+	
+}
+.user-button{
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 5px;
+}
+/* -----------------------------navbar style------------------------------ */
+nav{
+    display: flex;
+    height: 80px;
+    width: 100%;
+    background: #ffffff;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+  }
+  nav .logo{
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    font-weight: 600;
+    padding-left: 40px;
+    padding-bottom: 12px;
+  }
+  nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  nav ul li{
+    padding-top: 23px;
+    padding-left: 20px;
+  }
+  nav ul li a{
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(88, 88, 252);
+  }
+  nav .menu-btn{
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+  }
+  input[type="checkbox"]{
+    display: none;
+  }
+  @media (max-width: 700px){
+    nav{
+      padding: 0 20px 0 30px;
+    }
+  }
+  @media (max-width: 700px) {
+    nav .menu-btn{
+      display: block;
+      color: #000000;
+    }
+    #click:checked ~ .menu-btn i:before{
+      content: "\f00d";
+    }
+    nav ul{
+      
+      top: 80px;
+      left: -100%;
+      background: rgb(255, 255, 255);
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    #click:checked ~ ul{
+      left: 0;
+    }
+    nav ul li{
+      width: 100%;
+      color: #fff;
+      padding-top: 10px;
+      padding-left: 0px;
+    }
+    nav ul li a{
+      color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+      
+      margin-left: -110%;
+      display: block;
+      font-size: 20px;
+      transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    #click:checked ~ ul li a{
+      margin-left: 0px;
+    }
+    
+    nav ul li a:hover{
+      color: rgb(255, 255, 255);
+      background: rgb(88, 88, 252);
+    }
+  }
+
+/* --------------------------------navbar style end-------------------------- */
+
+/* ----------------------------------introduction style------------------------- */
+
+#intro{
+    width: 100%;
+    padding-top: 8%;
+    padding-left: 4%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+@media(max-width:700px){
+  #intro{
+    padding-top: 15%;
+  }
+}
+.middle-section-cols{
+  text-align: left;
+}
+.middle-section-image{
+  width: 600px;
+  
+}
+@media(max-width:700px){
+  .middle-section{
+    padding-top: 18%;
+    text-align: left;
+}
+}
+h1{
+    font-weight: bolder;
+}
+
+.LS-buttons{
+    text-align: left;
+    padding-top: 12px;
+    
+}
+
+.lsbtn a{
+    color: white;
+    text-decoration: none;
+}
+
+.lsbtn{
+    width: 140px;
+    margin-inline: 7px;
+    border-radius: 30px;
+}
+/* -----------------------------------------------introduction end-------------------------------------- */
+
+/* ------------------------------------------------fetaured start--------------------------------------- */
+
+.feature-section-image{
+    width: 400px;
+    height: 400px;
+    border-radius: 40px;
+}
+#features{
+    padding: 4% 9%;
+    background-color: rgb(205, 205, 205);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+#rightpane{
+  text-align: left;
+}
+.welcome-para{
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.company-name-in-body{
+    color:rgb(88, 88, 252);
+    font-weight: bolder;
+}
+.feature-body-para{
+    color: rgb(81, 81, 81);
+}
+.point-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 30px;
+}
+.point{
+    font-weight: bold;
+    font-size: 1.5rem;
+
+}
+.first-point{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.second-point{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.third-point{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media(max-width:700px){
+  #rightpane{
+    padding-top: 30px;
+  }
+  .point-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 30px;
+}
+  .first-point{
+    display:inline-block;
+  }
+}
+
+/* ----------------------------------feature end------------------------------- */
+
+/* -----------------------------------reviews start----------------------------- */
+.reviews{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-top: 30px;
+  display: grid;
+  
+  place-items: center;
+  text-align: center;
+  background: #f2f2f2;
+}
+.slider{
+  max-width: 1100px;
+  display: flex;
+  
+}
+.slider .card{
+  flex: 1;
+  margin: 0 10px;
+  background: #fff;
+}
+.slider .card .img{
+  height: 200px;
+  width: 100%;
+}
+.slider .card .img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider .card .content{
+  padding: 10px 20px;
+}
+.card .content .title{
+  font-size: 25px;
+  font-weight: 600;
+}
+.card .content .sub-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(88, 88, 252);
+  line-height: 20px;
+}
+.card .content p{
+  text-align: justify;
+  margin: 10px 0;
+}
+.card .content .btn{
+  display: block;
+  text-align: left;
+  margin: 10px 0;
+}
+.card .content .btn button{
+  background:rgb(88, 88, 252);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.card .content .btn button:hover{
+  transform: scale(0.9);
+}
+
+/* ------------------------------------------reviews end--------------------------- */
+
+/* footer styling---------- */
+.footer-col .phone
+{
+    text-decoration: none !important;
+    color: #ffffff;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+    
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 30px 0;
+    align-items: center;
+}
+.footer-col
+{
+    text-decoration: none !important;
+}
+.footer-col .aboutlegalcube
+{
+    color: rgb(255, 255, 255);
+    padding-right: 5px;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 5px;
+}
+.footer-col .address
+{
+    color: #ffffff;
+}
+.footer-col .emailaddress
+{
+    color: #ffffff;
+}
+
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 700;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #ffffff;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #ffffff;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer2{
+	background-color: #24262b;
+    align-items: center;
+   
+}
+.credit
+{
+    color: #fff;
+    text-align: center;
+}
+.footer2 .credit .cv
+{
+   color: cornflowerblue;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+/* footerstyle end */
