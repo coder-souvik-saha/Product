@@ -6,35 +6,81 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Montserrat:wght@100&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="style.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <title>index.html</title>
 </head>
 
 <body class="bgAnimObj2">
   <section id="Title">
-    <!-- Nav Bar -->
-    <nav>
-      <div class="logo">
-         Company Name
+    <!-------------------------------------- Nav Bar ------------------------------------------>
+    <nav class="navbar">
+      <div class="content">
+        <div class="logo">
+          <a href="#">Name</a>
+        </div>
+        
       </div>
-      <input type="checkbox" id="click">
-      <label for="click" class="menu-btn">
-      <i class="fas fa-bars"></i>
-      </label>
-      <ul>
-         <li><a href="#">Home</a></li>
-         <li><a href="#">About</a></li>
-         <li><a href="#">Contact</a></li>
-         <li style="padding-bottom: 20px;"><a class="nav-link disabled" href="#" ><img src="asset/loginicon.png" alt="" height="30px"></a></li>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li onclick="openForm()"><a href="#" >Login</a></li>
       </ul>
-   </nav>
-<!-- -----------------------------------navbar end-------------------------------------- -->
+      <div class="icon menu-btn" style="padding-right:30px;">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    
+    <script>
+      const body = document.querySelector("body");
+  const navbar = document.querySelector(".navbar");
+  const menuBtn = document.querySelector(".menu-btn");
+  const cancelBtn = document.querySelector(".cancel-btn");
+  menuBtn.onclick = ()=>{
+    navbar.classList.add("show");
+    menuBtn.classList.add("hide");
+    body.classList.add("disabled");
+  }
+  cancelBtn.onclick = ()=>{
+    body.classList.remove("disabled");
+    navbar.classList.remove("show");
+    menuBtn.classList.remove("hide");
+  }
+  window.onscroll = ()=>{
+    this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+  }
+    </script>
+    
+    <!-- -----------------------------------navbar end-------------------------------------- -->
+
+   
+
+
+<!-- ---------------------------------------login form-------------------------------- -->
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"><button type="submit" class="btn"><span class="firebaseui-idp-icon-wrapper"><img class="firebaseui-idp-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20px"></span>  Sign In Using Google</button></div>
+    <div class="g-signin2" data-onsuccess="onSignIn"><button type="submit" class="btn"><i class="fab fa-facebook-f"></i> Sign In Using Facebook</button></div>
+    
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+<!-- ------------------------------------------login form end----------------------------- -->
 
 <!-- -----------------------------------------introduction--------------------------------------- -->
     <div class="row middle-section" id="intro">
@@ -43,8 +89,8 @@
           <h1 class="encouraging-text">Start Your Group Discussion Preparation Now!</h1>
         </div>
         <div class="LS-buttons">
-        <button type="button" class="lsbtn btn btn-primary "><a class="Login-link" href="#">Login</a></button>
-        <button type="button" class="lsbtn btn btn-primary"><a class="Login-link" href="#">Sign Up</a></button>
+        <button type="button" class="lsbtn btn btn-primary " onclick="openForm()"><a class="Login-link" href="#">Login</a></button>
+        <button type="button" class="lsbtn btn btn-primary" onclick="openForm()"><a class="Login-link" href="#">Sign Up</a></button>
         </div>
       </div>
       <div class="col-lg-6">
@@ -103,175 +149,103 @@
 
 
 <!-- ---------------------------reviews------------------------------ -->
-<div class="reviews">
-  <div class="slider owl-carousel">
-    <div class="card">
-       <div class="img">
-        <img src="asset/user1.jpg" alt="">
-       </div>
-       <div class="content">
-          <div class="title">
-             User1
-          </div>
-          <div class="sub-title">
-             Location
-          </div>
-          <p>
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
-          </p>
-          <div class="btn">
-             <button>Read more</button>
-          </div>
-       </div>
+<h1 style="text-align: center;padding-top:20px">Reviews</h1>
+<div class="review">
+  
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="detailedreview">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto maxime nulla pariatur libero, voluptate, ut alias molestiae labore quam nihil dolorem voluptatem at a. Animi asperiores aperiam sequi nobis?
     </div>
-    <div class="card">
-       <div class="img">
-          <img src="asset/user1.jpg" alt="">
-       </div>
-       <div class="content">
-          <div class="title">
-            User2
-          </div>
-          <div class="sub-title">
-             Location
-          </div>
-          <p>
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
-          </p>
-          <div class="btn">
-             <button>Read more</button>
-          </div>
-       </div>
-    </div>
-    <div class="card">
-       <div class="img">
-        <img src="asset/user1.jpg" alt="">
-       </div>
-       <div class="content">
-          <div class="title">
-             User3
-          </div>
-          <div class="sub-title">
-             Location
-          </div>
-          <p>
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
-          </p>
-          <div class="btn">
-             <button>Read more</button>
-          </div>
-       </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="asset/user1.jpg" alt="">
+    <div class="text1">
+      <div class="text-content">
+        <h1 class="title">USER1</h1>
       </div>
-      <div class="content">
-         <div class="title">
-            User4
-         </div>
-         <div class="sub-title">
-            Location
-         </div>
-         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
-         </p>
-         <div class="btn">
-            <button>Read more</button>
-         </div>
+    </div>
+    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="50"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>
+  </div>
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="detailedreview">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto maxime nulla pariatur libero, voluptate, ut alias molestiae labore quam nihil dolorem voluptatem at a. Animi asperiores aperiam sequi nobis?
+    </div>
+    <div class="text1">
+      <div class="text-content">
+        <h1 class="title">USER2</h1>
       </div>
-   </div>
+    </div>
+    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="50"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>
+  </div>
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="detailedreview">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto maxime nulla pariatur libero, voluptate, ut alias molestiae labore quam nihil dolorem voluptatem at a. Animi asperiores aperiam sequi nobis?
+    </div>
+    <div class="text1">
+      <div class="text-content">
+        <h1 class="title">USER3</h1>
+      </div>
+    </div>
+    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="50"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>
   </div>
 
 </div>
 
-<script>
-  $(".slider").owlCarousel({
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 2000, //2000ms = 2s;
-    autoplayHoverPause: true,
-  });
-</script>
+
   
 <!-- --------------------------------------------------reviews end----------------------------- -->
   
   <!-- footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>/Name/</h4>
-                    <p class="aboutlegalcube">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.voluptates.
-                    </p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">Home</a></li>
-                        <li><a href="#services">About</a></li>
-                        <li><a href="reviews.html">Contact</a></li>
-                        <li><a href="blog.html">Login</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <div class="address">
-                        <i class="fas fa-map-marker-alt"><span class="para"> GR-FR; FL -GA1, 25/A Subhas Pally, LP-168/14/1, Netaji Nagar, Kolkata, PIN - 700092</span></i>
-                    </div>
-                    <br>
-                    <div class="emailaddress">
-                        <i class="fas fa-envelope">  <span class="para"> <a href="mailto:info@legalcube.in">info</a> </span></i>
-                    </div>     
-                    <br>
-                    <div class="phone">
-                        <i class="fa-solid fa-phone"><span class="para"><a href="tel:8777426460">8777426460</a> </span> </i>
-                    </div> 
-                    <br>
-                    <div class="phone">
-                        <i class="fa-solid fa-phone"><span class="para"><a href="tel:8001643304">8001643304</a> </span> </i>
-                    </div> 
-                    
-                </div>
-                <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <br>
-                
-            </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>About</h6>
+          <p class="text-justify">wwww.name.com<i> Lorem </i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam minima quibusdam sint. Enim eum veritatis velit nostrum deleniti consequuntur, eligendi laboriosam quibusdam libero ullam. Eligendi sint aliquam quos molestiae sunt?</p>
         </div>
-   </footer>
-   <footer class="footer2">
-    <div class="credit">
-        <span>
-            
-            &copy 2022 /Name/ | All rights reserved.
-            <br>
-            Developed and Mainatined by <a href="#" class="cv">----------</a> 
-            
-        </span>
-        <div class="ptc">
-            <a href="disclaimer.html" style="color:white;">Disclaimer</a>
-            <span>&middot;</span>
-            <a href="#" style="color:white;">Privacy</a>
-            <span>&middot;</span>
-            <a href="#" style="color:white;">T & C</a>
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
         </div>
+        <div class="col-xs-6 col-md-3">
+          <h6>Contact Us</h6>
+          <ul class="footer-links">
+            <li><a href="tel:987654321">987654321</a></li>
+            <li><a href="mailto:abc@abc.gmail.com">abc@abc.gmail.com</a></li>
+          </ul>
+        </div>
+
+        
+      </div>
+      <hr>
     </div>
-   </footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
+       <a href="#">Name</a>.
+          </p>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+</footer>
 
     
-    <script src="script.js"></script>
+    <script src="javascript/index.js"></script>
   
 </body>
 
